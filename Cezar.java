@@ -2,6 +2,7 @@
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
@@ -50,7 +51,7 @@ public class Cezar {
     //'direction' is the direction of shifting.
     //
     // all symbols that are not present in the alphabet stay unchanged.
-    public String render(String filePath, int key, Direction direction) {
+    public String render(Path filePath, int key, Direction direction) {
 
         String inputString = getInputString(filePath);
         Pattern perSymbol = Pattern.compile("");
@@ -58,11 +59,13 @@ public class Cezar {
 
         if (key > 26) {
             key = key % 26;
+            System.out.println("Actual key: "+key);
         }
         if (key < 0) {
             key = 26 + key;
+            System.out.println("Actual key: "+key);
         }
-        System.out.println("key: "+key);
+
 
         switch (direction) {
             case FORWARD:
@@ -105,10 +108,10 @@ public class Cezar {
         return res;
     }
 
-    public String getInputString(String filePath) {
+    public String getInputString(Path filePath) {
         String res = "";
         try {
-            res = Files.readString(Paths.get(filePath));
+            res = Files.readString(filePath);
         } catch (IOException e) {
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
