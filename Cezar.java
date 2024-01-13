@@ -12,37 +12,37 @@ public class Cezar {
 
     private final String[] alphabet = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
 
-    private final Map<String, Integer> lOrder = getStringIntegerMap();
+    private final Map<String, Integer> lettersOrder = getStringIntegerMap();
 
     private Map<String, Integer> getStringIntegerMap() {
-        Map<String, Integer> lOrder = new HashMap<>();
-        lOrder.put("a", 0);
-        lOrder.put("b", 1);
-        lOrder.put("c", 2);
-        lOrder.put("d", 3);
-        lOrder.put("e", 4);
-        lOrder.put("f", 5);
-        lOrder.put("g", 6);
-        lOrder.put("h", 7);
-        lOrder.put("i", 8);
-        lOrder.put("j", 9);
-        lOrder.put("k", 10);
-        lOrder.put("l", 11);
-        lOrder.put("m", 12);
-        lOrder.put("n", 13);
-        lOrder.put("o", 14);
-        lOrder.put("p", 15);
-        lOrder.put("q", 16);
-        lOrder.put("r", 17);
-        lOrder.put("s", 18);
-        lOrder.put("t", 19);
-        lOrder.put("u", 20);
-        lOrder.put("v", 21);
-        lOrder.put("w", 22);
-        lOrder.put("x", 23);
-        lOrder.put("y", 24);
-        lOrder.put("z", 25);
-        return lOrder;
+        Map<String, Integer> lettersOrder = new HashMap<>();
+        lettersOrder.put("a", 0);
+        lettersOrder.put("b", 1);
+        lettersOrder.put("c", 2);
+        lettersOrder.put("d", 3);
+        lettersOrder.put("e", 4);
+        lettersOrder.put("f", 5);
+        lettersOrder.put("g", 6);
+        lettersOrder.put("h", 7);
+        lettersOrder.put("i", 8);
+        lettersOrder.put("j", 9);
+        lettersOrder.put("k", 10);
+        lettersOrder.put("l", 11);
+        lettersOrder.put("m", 12);
+        lettersOrder.put("n", 13);
+        lettersOrder.put("o", 14);
+        lettersOrder.put("p", 15);
+        lettersOrder.put("q", 16);
+        lettersOrder.put("r", 17);
+        lettersOrder.put("s", 18);
+        lettersOrder.put("t", 19);
+        lettersOrder.put("u", 20);
+        lettersOrder.put("v", 21);
+        lettersOrder.put("w", 22);
+        lettersOrder.put("x", 23);
+        lettersOrder.put("y", 24);
+        lettersOrder.put("z", 25);
+        return lettersOrder;
     }
     //'filepath' is the path to the file with source text.
     //'key' is the size of the shift through the alphabet for every letter in the source text.
@@ -82,8 +82,8 @@ public class Cezar {
         String res = "";
         for (int i = 0; i < inputArray.length; i++) {
 
-            if (lOrder.containsKey(inputArray[i])) {
-                Integer searchedIndex = lOrder.get(inputArray[i]) + key;
+            if (lettersOrder.containsKey(inputArray[i])) {
+                Integer searchedIndex = lettersOrder.get(inputArray[i]) + key;
                 if (searchedIndex > alphabet.length-1) {
                     searchedIndex = searchedIndex % alphabet.length;
                 }
@@ -97,8 +97,8 @@ public class Cezar {
         String res = "";
         for (int i = 0; i < inputArray.length; i++) {
 
-            if (lOrder.containsKey(inputArray[i])) {
-                Integer searchedIndex = lOrder.get(inputArray[i]) - key;
+            if (lettersOrder.containsKey(inputArray[i])) {
+                Integer searchedIndex = lettersOrder.get(inputArray[i]) - key;
                 if (searchedIndex < 0) {
                     searchedIndex = alphabet.length + searchedIndex;
                 }
