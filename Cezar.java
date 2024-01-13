@@ -57,12 +57,12 @@ public class Cezar {
         Pattern perSymbol = Pattern.compile("");
         String[] inputArray = perSymbol.split(inputString);
 
-        if (key > 26) {
-            key = key % 26;
+        if (key > alphabet.length) {
+            key = key % alphabet.length;
             System.out.println("Actual key: "+key);
         }
         if (key < 0) {
-            key = 26 + key;
+            key = alphabet.length + key;
             System.out.println("Actual key: "+key);
         }
 
@@ -84,8 +84,8 @@ public class Cezar {
 
             if (lOrder.containsKey(inputArray[i])) {
                 Integer searchedIndex = lOrder.get(inputArray[i]) + key;
-                if (searchedIndex > 25) {
-                    searchedIndex = searchedIndex % 26;
+                if (searchedIndex > alphabet.length-1) {
+                    searchedIndex = searchedIndex % alphabet.length;
                 }
                 res = res + alphabet[searchedIndex];
             } else res = res + inputArray[i];
@@ -100,7 +100,7 @@ public class Cezar {
             if (lOrder.containsKey(inputArray[i])) {
                 Integer searchedIndex = lOrder.get(inputArray[i]) - key;
                 if (searchedIndex < 0) {
-                    searchedIndex = 26 + searchedIndex;
+                    searchedIndex = alphabet.length + searchedIndex;
                 }
                 res = res + alphabet[searchedIndex];
             } else res = res + inputArray[i];
