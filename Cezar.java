@@ -71,10 +71,9 @@ public class Cezar {
                 return moveForward(inputArray, key);
             case BACKWARD:
                 return moveBackward(inputArray, key);
-            default: {
+            default:
                 System.out.println("Something went wrong");
                 return null;
-            }
         }
     }
 
@@ -137,7 +136,6 @@ public class Cezar {
             res = Files.readString(filePath);
         } catch (IOException e) {
             System.out.println(e.getMessage());
-            throw new RuntimeException(e);
         }
         return res;
     }
