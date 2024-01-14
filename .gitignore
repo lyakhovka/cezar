@@ -1,3 +1,5 @@
 .idea/
 cezar.iml
 out/
+*.class
+
