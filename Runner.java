@@ -1,6 +1,6 @@
 import java.sql.SQLOutput;
 
-public class runner {
+public class Runner {
     public static void main(String[] args) {
 
         String command = args[0];

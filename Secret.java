@@ -64,7 +64,7 @@ public class Secret {
     }
 
     //This method encodes the text from the source file and stores the result in the file at 'encodedFilePath' path
-    public void encode() {
+    public void encrypt() {
         Cezar cypher = new Cezar();
         String res = cypher.render(sourceFilePath, key, Direction.FORWARD);
         storeResult(res, encodedFilePath);
@@ -72,7 +72,7 @@ public class Secret {
     }
 
     //This method decodes the text from the source file and stores the result in the file at 'decodedFilePath' path
-    public void decode() {
+    public void decrypt() {
         Cezar cypher = new Cezar();
         String res = cypher.render(sourceFilePath, key, Direction.BACKWARD);
         storeResult(res, decodedFilePath);
@@ -80,7 +80,7 @@ public class Secret {
     }
     
     //This method decodes the text from the ENCODED file and stores the result in the file at 'decodedFilePath' path
-    public void testEncoding() {
+    public void testEncrypting() {
         Cezar cypher = new Cezar();
         String res = cypher.render(encodedFilePath, key, Direction.BACKWARD);
         storeResult(res, decodedFilePath);
