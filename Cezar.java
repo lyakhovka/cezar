@@ -42,6 +42,9 @@ public class Cezar {
         lettersOrder.put('z', 25);
         return lettersOrder;
     }
+    public int getAlphabetLength(){
+        return alphabet.length;
+    }
 
     //'filepath' is the path to the file with source text.
     //'key' is the size of the shift through the alphabet for every letter in the source text.
