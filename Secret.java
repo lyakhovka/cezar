@@ -96,14 +96,11 @@ public class Secret {
             res = System.lineSeparator() + "Key = " + i + ":" + System.lineSeparator() + res + System.lineSeparator();
             storeResult(res, decodedFilePath);
         }
-
     }
 
     private void storeResult(String res, Path filePath) {
-
         try {
             Files.writeString(filePath, res, CREATE, APPEND);
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

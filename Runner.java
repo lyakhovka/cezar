@@ -11,7 +11,6 @@ public class Runner {
                 secret = new Secret(filePath, key);
             } else secret = new Secret(filePath);
 
-
             switch (command) {
                 case "ENCRYPT":
                     secret.encrypt();
