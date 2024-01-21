@@ -102,7 +102,8 @@ public class Secret {
         try {
             Files.writeString(filePath, res, CREATE, APPEND);
         } catch (IOException e) {
-            System.out.println("Can not store result into file: " + e.getMessage());;
+            System.out.println("Can not store result into file: " + e.getMessage());
+            ;
         }
     }
 }
