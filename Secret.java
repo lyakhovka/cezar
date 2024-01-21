@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -26,6 +25,7 @@ public class Secret {
     public Path getEncodedFilePathFilePath() {
         return this.encodedFilePath;
     }
+
     public Path getDecodedFilePathFilePath() {
         return this.decodedFilePath;
     }
@@ -78,7 +78,7 @@ public class Secret {
         storeResult(res, decodedFilePath);
         System.out.println("Secret revealed: " + res);
     }
-    
+
     //This method decodes the text from the ENCODED file and stores the result in the file at 'decodedFilePath' path
     public void testEncrypting() {
         Cezar cypher = new Cezar();
@@ -89,9 +89,9 @@ public class Secret {
 
     //This method runs decoding of the source file content for every possible key. All results are stored in the 'decodedFilePath'.
     // Evaluation of which result makes sense is up to user.
-    public void bruteForce(){
+    public void bruteForce() {
         Cezar cypher = new Cezar();
-        for(int i=0; i< cypher.getAlphabetLength(); i++){
+        for (int i = 0; i < cypher.getAlphabetLength(); i++) {
             String res = cypher.render(sourceFilePath, i, Direction.BACKWARD);
             res = System.lineSeparator() + "Key = " + i + ":" + System.lineSeparator() + res + System.lineSeparator();
             storeResult(res, decodedFilePath);
@@ -102,7 +102,7 @@ public class Secret {
         try {
             Files.writeString(filePath, res, CREATE, APPEND);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Can not store result into file: " + e.getMessage());;
         }
     }
 }
