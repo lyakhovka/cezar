@@ -1,5 +1,6 @@
 public class Runner {
     public static void main(String[] args) {
+
         Secret secret = BeforeRun.secretInit(args);
         String command = args[0];
 
