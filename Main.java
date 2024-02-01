@@ -4,7 +4,7 @@ public class Main {
         int sourceFilePathIndex = 1;
         int keyIndex = 2;
 
-        BeforeRun.validateParams(args);
+        ArgumentValidator.validateArgs(args);
         String command = args[commandParameterIndex];
         Secret secret = args.length == 2 ? new Secret(args[sourceFilePathIndex]) : new Secret(args[sourceFilePathIndex], Integer.parseInt(args[keyIndex]));
 
