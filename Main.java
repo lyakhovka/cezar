@@ -1,4 +1,4 @@
-public class Runner {
+public class Main {
     public static void main(String[] args) {
         int commandParameterIndex = 0;
         int sourceFilePathIndex = 1;
