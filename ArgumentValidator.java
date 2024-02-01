@@ -1,7 +1,7 @@
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class BeforeRun {
+public class ArgumentValidator {
 
     private static final String ERROR_LOG = """
                         
@@ -17,7 +17,7 @@ public class BeforeRun {
 //OR any of input params is not valid
 //OR amount of input params are 2 but command is not 'BRUTE_FORCE'
 //then info message is shown and program ends with code 1.
-    private static void validateParams(String[] args) {
+    public static void validateArgs(String[] args) {
         int argNumber = args.length;
         String command = "";
         String filePath = "";
@@ -36,11 +36,6 @@ public class BeforeRun {
                 (argNumber > 2 && !validateKey(key))) {
             showInfoAndQuit();
         } else System.out.println("Input Parameters are Valid.");
-    }
-
-    public static Secret secretInit(String[] args) {
-        validateParams(args);
-        return args.length == 2 ? new Secret(args[1]) : new Secret(args[1], Integer.parseInt(args[2]));
     }
 
     private static void showInfoAndQuit() {
