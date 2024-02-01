@@ -19,21 +19,25 @@ public class ArgumentValidator {
 //then info message is shown and program ends with code 1.
     public static void validateArgs(String[] args) {
         int argNumber = args.length;
-        String command = "";
-        String filePath = "";
-        String key = "";
+        int commandIndex = 0;
+        int sourceFilePathIndex = 1;
+        int keyIndex = 2;
 
-        if (argNumber < 2) {
-            showInfoAndQuit();
-        } else {
-            command = args[0];
-            filePath = args[1];
-        }
-        if (argNumber > 2) key = args[2];
+//        String command = "";
+//        String filePath = "";
+//        String key = "";
+//
+//        if (argNumber < 2) {
+//            showInfoAndQuit();
+//        } else {
+//            command = args[0];
+//            filePath = args[1];
+//        }
+//        if (argNumber > 2) key = args[2];
 
-        if ((argNumber < 2 || !validateCommand(command) || (!validatePath(filePath))) ||
-                (argNumber == 2 && !command.equals("BRUTE_FORCE")) ||
-                (argNumber > 2 && !validateKey(key))) {
+        if ((argNumber < 2 || !validateCommand(args[commandIndex]) || (!validatePath(args[sourceFilePathIndex]))) ||
+                (argNumber == 2 && !args[commandIndex].equals("BRUTE_FORCE")) ||
+                (argNumber > 2 && !validateKey(args[keyIndex]))) {
             showInfoAndQuit();
         } else System.out.println("Input Parameters are Valid.");
     }
